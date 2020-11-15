@@ -13,14 +13,14 @@ import java.util.List;
 @RestController
 class Controller {
 
-    private TransactionService service;
+    private final TransactionService service;
 
     @Autowired
     Controller(TransactionService service) {
         this.service = service;
     }
 
-    @GetMapping("/transactions")
+    @GetMapping("/transaction")
     ResponseEntity<List<TransactionDTO>> getTransactionsByAccountTypeAndCustomerId(
         @RequestParam(value = "account_type") String accountType, @RequestParam(value = "customer_id") String customerId) {
 
